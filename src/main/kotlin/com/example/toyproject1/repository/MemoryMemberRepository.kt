@@ -7,7 +7,7 @@ import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 
-@Repository
+//@Repository
 class MemoryMemberRepository : MemberRepository { //Interface 구현하는 실체 클래스 (나중에 변경하거나 모듈성 생각하면 이방식이 좋다)
 
     companion object{

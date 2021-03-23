@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service
 import java.lang.IllegalStateException
 
 
-@Service
+//@Service
 class MemberService {
 
     //val memberRepository : MemberRepository = MemoryMemberRepository() //인터페이스, real class(실체)
     var memberRepository : MemberRepository //(디테일!) Test에서의 인스턴스와 같아야 함.
 
-    @Autowired
+    //@Autowired
     constructor( memberRepository : MemberRepository){
         this.memberRepository = memberRepository
     }

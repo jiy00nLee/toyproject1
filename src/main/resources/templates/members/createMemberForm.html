@@ -1,0 +1,18 @@
+<!-- 동적페이지 //-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class = "container">
+
+    <form action="/members/new" method="post">
+        <div class="form-group">
+            <label for="name">이름</label>  <!--이 라벨은 밑의 input의 '(id)name'의 라벨이다.-->
+            <input type="text" id="name" name="name" placeholder="이름을 입력하세요.">
+        </div>
+        <button type="submit">등록</button>
+    </form>
+</div>
+
+</body>
+</html>
