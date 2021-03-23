@@ -1,0 +1,12 @@
+<!-- 동적페이지 // 툴 : 타임리프 사용하기. -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">  <!-- th==tymleaf 고정문법-->
+<head>
+    <title>Hello Project</title>
+    <meta http-equiv="Content-Type" content="text/html; charset= utf-8" />
+</head>
+<body>
+<p th:text="'안녕하세요, ' + ${data}"> 안녕하세요, 아무개님. </p>
+</body>
+</html>
