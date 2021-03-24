@@ -33,12 +33,12 @@ class JdbcTemplateMemberRepository : MemberRepository {
 
     override fun findById(id: Long): Member? {
         var result : MutableList<Member?> = jdbcTemplate.query("select * from member where id =?", memberRowMapper(), id)
-        return result.firstOrNull() //result.stream.findAny() -> 무작위로 하나 출력하고 싶음.(근데 지금은 무조건 처음꺼)
+        return result.randomOrNull() //result.stream.findAny() -> 무작위로 하나 출력하고 싶음.(근데 지금은 무조건 처음꺼-> result.firstOrNull )
     }
 
     override fun findByName(name: String): Member? {
         var result : MutableList<Member?> = jdbcTemplate.query("select * from member where name =?", memberRowMapper(), name)
-        return result.firstOrNull()
+        return result.randomOrNull()
     }
 
     override fun findAll(): List<Member> {
