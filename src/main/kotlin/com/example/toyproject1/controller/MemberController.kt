@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping
 @Controller
 class MemberController {
     //var memberService : MemberService = MemberService() //객체를 새로 생성할 경우, 쓸데 없이 여러개가 생성되므로 에바세바.(X)
-    var memberService : MemberService  //-> 스프링 컨테이너에 등록후 받아쓰게 해야함.
+    private var memberService : MemberService  //-> 스프링 컨테이너에 등록후 받아쓰게 해야함.
 
     @Autowired
     constructor(memberService: MemberService){

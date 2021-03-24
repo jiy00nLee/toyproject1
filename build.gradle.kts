@@ -20,7 +20,9 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")	//동적 템플릿(타임리프) 라이브러리 추가
+	implementation("org.springframework.boot:spring-boot-starter-jdbc")	//순수 jdbc 사용 라이브러리 추가
+	runtimeOnly ("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
