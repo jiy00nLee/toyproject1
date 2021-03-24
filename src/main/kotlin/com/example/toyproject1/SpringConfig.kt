@@ -1,6 +1,7 @@
 package com.example.toyproject1
 
 import com.example.toyproject1.repository.JdbcMemberRepository
+import com.example.toyproject1.repository.JdbcTemplateMemberRepository
 import com.example.toyproject1.repository.MemberRepository
 import com.example.toyproject1.repository.MemoryMemberRepository
 import com.example.toyproject1.service.MemberService
@@ -27,7 +28,10 @@ class SpringConfig  {
     @Bean
     fun memberRepository() : MemberRepository { //인터페이스를 묶어주고 (밑에 실체화 리턴)
         //return MemoryMemberRepository() //인터페이스 X, 실체화(ver1) 만 리턴O -> 리턴하는애를 실제 디비로 리턴하기만 하면 바꿔 끼울 수 있다.
-        return JdbcMemberRepository(dataSource)   //갈아끼웠음 (ver2) (실제 디비로)
+
+        //return JdbcMemberRepository(dataSource)   //갈아끼웠음 (ver2) (실제 디비로- JDBC original)
+
+        return JdbcTemplateMemberRepository(dataSource) //갈아끼웠음 (ver3) (JDBC Template)
     }
 
 
