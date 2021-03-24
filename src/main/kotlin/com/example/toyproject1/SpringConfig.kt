@@ -25,9 +25,9 @@ class SpringConfig  {
     }
 
     @Bean
-    fun memberRepository() : MemberRepository {
-        //return MemoryMemberRepository() //인터페이스 X, 실체화만 리턴O -> 리턴하는애를 실제 디비로 리턴하기만 하면 바꿔 끼울 수 있다.
-        return JdbcMemberRepository(dataSource)   //갈아끼웠음 (실제 디비로)
+    fun memberRepository() : MemberRepository { //인터페이스를 묶어주고 (밑에 실체화 리턴)
+        //return MemoryMemberRepository() //인터페이스 X, 실체화(ver1) 만 리턴O -> 리턴하는애를 실제 디비로 리턴하기만 하면 바꿔 끼울 수 있다.
+        return JdbcMemberRepository(dataSource)   //갈아끼웠음 (ver2) (실제 디비로)
     }
 
 
