@@ -5,14 +5,16 @@ import com.example.toyproject1.repository.MemberRepository
 import com.example.toyproject1.repository.MemoryMemberRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import java.lang.IllegalStateException
 
 
 //@Service
+@Transactional  //JPA 사용시 데이터를 변경하거나 저장할 때 '서비스'에서 꼭 해주어야한다.(뷰모델에서의 쓰레드관리처럼)
 class MemberService {
 
     //val memberRepository : MemberRepository = MemoryMemberRepository() //인터페이스, real class(실체)
-    var memberRepository : MemberRepository //(디테일!) Test에서의 인스턴스와 같아야 함.
+    private val memberRepository : MemberRepository //(디테일!) Test에서의 인스턴스와 같아야 함.
 
     //@Autowired
     constructor( memberRepository : MemberRepository){

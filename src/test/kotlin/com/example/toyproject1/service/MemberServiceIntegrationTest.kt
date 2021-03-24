@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.annotation.Commit
 import org.springframework.transaction.annotation.Transactional
 import kotlin.jvm.Throws
 
@@ -40,6 +41,7 @@ class MemberServiceIntegrationTest {
 */
 
     @Test
+    @Commit // 관계형 데이터베이스 관리 시스템(RDBMS)에서 트랜잭션을 종료하고 다른 사용자에게 변경된 모든 사항을 보이도록 만드는 문.
     fun 회원가입() {
         //given
         var member : Member = Member()

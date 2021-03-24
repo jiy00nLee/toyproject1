@@ -13,7 +13,7 @@ import java.util.*
 
 class JdbcTemplateMemberRepository : MemberRepository {
 
-    private var jdbcTemplate : JdbcTemplate
+    private val jdbcTemplate : JdbcTemplate
 
     @Autowired //근데 constructor(생성자)가 하나인 경우 @Autowired를 생략해두 댐.
     constructor(dataSource: DataSource){ //얘는 직접 jdbcTemplate을 injection 받을 수 X.

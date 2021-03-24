@@ -1,23 +1,31 @@
 package com.example.toyproject1
 
-import com.example.toyproject1.repository.JdbcMemberRepository
-import com.example.toyproject1.repository.JdbcTemplateMemberRepository
-import com.example.toyproject1.repository.MemberRepository
-import com.example.toyproject1.repository.MemoryMemberRepository
+import com.example.toyproject1.repository.*
 import com.example.toyproject1.service.MemberService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import javax.persistence.EntityManager
+import javax.persistence.PersistenceContext
 import javax.sql.DataSource
 
 @Configuration
 class SpringConfig  {
 
+    /*
     private var dataSource : DataSource
 
     @Autowired //(중요)
-    constructor(dataSource: DataSource){    //스프링께서 만들어주신 db소스를 주입해줌.(DI)
+    constructor(dataSource: DataSource){    //스프링께서 만들어주신 db소스를 주입해줌.(DI)  -> Ver1,2,3 용
         this.dataSource = dataSource
+    }*/
+
+    //@PersistenceContext
+    private var entityManager: EntityManager
+
+    @Autowired
+    constructor(entityManager: EntityManager){  //(ver4) JPA 용
+        this.entityManager = entityManager
     }
 
     @Bean
@@ -31,7 +39,9 @@ class SpringConfig  {
 
         //return JdbcMemberRepository(dataSource)   //갈아끼웠음 (ver2) (실제 디비로- JDBC original)
 
-        return JdbcTemplateMemberRepository(dataSource) //갈아끼웠음 (ver3) (JDBC Template)
+        //return JdbcTemplateMemberRepository(dataSource) //갈아끼웠음 (ver3) (JDBC Template)
+
+        return JPAMemberRepository(entityManager) //갈아끼웠음 (ver4) (JPA)
     }
 
 

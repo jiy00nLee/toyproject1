@@ -14,7 +14,7 @@ import java.sql.SQLException
 
 class JdbcMemberRepository : MemberRepository {
 
-    private var dataSource : DataSource
+    private val dataSource : DataSource
 
                                                 //DB랑 커넥팅하면 스프링부트가 DB소스를 만듬. 이를 주입해줌. (received_dataSource)
     constructor(received_dataSource: DataSource){ //received_dataSource : 주입받을 DB소스.
